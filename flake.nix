@@ -30,7 +30,7 @@
           ricty = prev.ricty.overrideAttrs (oldAttrs: {
             patchPhase =
               ''
-                sed \
+                sed -i \
                   -e '/^\$fontforge_command.*discord/,/exit 4/s/^/# /' \
                   -e '/^\$fontforge_command.*regular2oblique_converter/N;/^\$fontforge_command.*Discord.*ttf/,/exit 4/{s/^/# /;s/\n/\n# /}' \
                   ricty_generator.sh
